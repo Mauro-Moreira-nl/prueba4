@@ -1,0 +1,36 @@
+import requests
+import json
+
+if __name__ == '__main__':
+    url="https://httpbin.org/get"
+    args={'Nombre': 'Wilber', 'Apellido': 'Navarro'}
+
+    response = requests.get(url, params=args)
+    if response.status_code == 200:
+        response_json = json.loads(response.text)
+        origen = response_json['origin']
+        print(origen)
+
+
+import requests
+import json
+if __name__ == '__main__':
+    url="https://httpbin.org/post"
+    vload = {'Nombre': 'Wilber', 'Apellido': 'Navarro'}
+    headers = {'conten-Type': 'application/json', 'access-token': '12345'}
+    response = requests.post(url, data=json.dumps(vload), headers=headers)
+    print(response.url)
+    if response.status_code == 200:
+        headers_response = response.headers
+        server = headers_response['server']
+        print(server)
+
+import requests
+url = "https://jsonplaceholder.typicode.com/posts"
+respuesta = requests.get(url)
+data = respuesta.json()
+
+for d in data:
+    print(d["userId"])
+    print(d["title"])
+    print("------------")
