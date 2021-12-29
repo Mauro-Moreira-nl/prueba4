@@ -11,7 +11,6 @@ if __name__ == '__main__':
         origen = response_json['origin']
         print(origen)
 
-
 import requests
 import json
 if __name__ == '__main__':
@@ -34,3 +33,17 @@ for d in data:
     print(d["userId"])
     print(d["title"])
     print("------------")
+    
+    
+
+---
+
+if __name__ == '__main__':
+    url="https://httpbin.org/get"
+    args={'Nombre': 'Wilber', 'Apellido': 'Navarro'}
+
+    response = requests.get(url, params=args)
+    if response.status_code == 200:       
+        content = response.content
+        print(content)
+---
